@@ -5,10 +5,19 @@ using UnityEngine;
 public enum ItemType
 {
     None,
-    Potion,
     Weapon,
-    Armor,
-    Utility,
+    Head,
+    Body,
+    Feet,
+    Consumable
+}
+
+public enum ItemProperty
+{
+    None,
+    Hp,
+    Mana,
+    Damage
 }
 
 [System.Serializable]
@@ -32,12 +41,6 @@ public class Item
 
     public Item() {
         Count += 1;
-    }
-
-    public Item(string name)
-    {
-        Count += 1;
-        ItemName = name;
     }
 
     public void ShowFields()

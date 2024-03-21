@@ -11,41 +11,78 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        
 
-        Item item = new Item();
-        item.ItemName = "Sword";
-        item.Description = "A sword";
-        item.Level = 1;
-        item.Type = ItemType.Weapon;
-        
-        item.ShowFields();
-        items.Add(item);
 
-        
+        //Item item = new Item();
+        //item.ItemName = "Sword";
+        //item.Description = "A sword";
+        //item.Level = 1;
+        //item.Type = ItemType.Weapon;
 
-        item = new Item("Mana Potion");
-        item.Description = "Super Mana Potion";
-        item.Level = 2;
-        item.Type = ItemType.Potion;
-        item.ShowFields();
-        items.Add(item);
+        //item.ShowFields();
+        //items.Add(item);
 
-        switch (item.Type)
+
+
+        //item = new Item();
+        //item.ItemName = "Mana Potion";
+        //item.Description = "Super Mana Potion";
+        //item.Level = 2;
+        //item.Type = ItemType.Consumable;
+        //item.ShowFields();
+        //items.Add(item);
+
+        //item = new Item() {
+        //    Type = ItemType.Body,
+        //    Level = 3,
+        //    ItemName = "Golden Armor",
+        //    Description = "Shiny Armor",
+        //};
+
+        //items.Add(item);
+
+        Body body = new Body()
         {
-            case ItemType.None:
-                break;
-            case ItemType.Potion:
-                break;
-            case ItemType.Weapon:
-                break;
-            case ItemType.Armor:
-                break;
-            case ItemType.Utility:
-                break;
-            default:
-                break;
-        }
+            ItemName = "Body",
+            Description = "Body",
+            Type = ItemType.Body,
+            Hp = 20,
+            Mana = 15
+        };
+
+        Foot foot = new Foot() {
+            ItemName = "Foot",
+            Description = "Foot",
+            Type = ItemType.Feet,
+            Hp = 20,
+            Mana = 15,
+        };
+
+        Head head = new Head() {
+            ItemName = "Head",
+            Description = "Head",
+            Type = ItemType.Head,
+            Damage = 6,
+            Mana = 15,
+        };
+
+        ItemProperty wp = (UnityEngine.Random.Range(0, 2) == 0)
+            ? ItemProperty.Hp 
+            : ItemProperty.Mana;
+
+        Weapon weapon = new Weapon() {
+            ItemName = "Weapon",
+            Description = "Weapon",
+            Type = ItemType.Weapon,
+            Damage = 60,
+            Property = wp,
+            PropertyValue = 8,
+        };
+
+        items.Add(body);
+        items.Add(foot);
+        items.Add(head);
+        items.Add(weapon);
 
     }
 
