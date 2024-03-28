@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        enemy = new Enemy();
+        enemy = new Enemy(); 
+        
         enemyInterface = enemy;
 
         //enemy.Hp = 100;
@@ -33,5 +34,13 @@ public class GameController : MonoBehaviour
 
         float hp = enemy.GetHp();
         Debug.Log(hp);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            enemy.ApplyDamage(Random.Range(10,30));
+        }
     }
 }
