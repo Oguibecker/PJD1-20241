@@ -20,19 +20,35 @@ public class Weapon : MonoBehaviour
 {
     public WeaponType Type;
 
+    public string Name;
     public float Distance;
     public float FireRate;
     public float Damage;
-    protected int Ammo;
     public int MaxAmmo;
     public float ReloadSpeed;
     public float Weight;
     public float Accuracy;
 
+    [SerializeField]
+    protected int Ammo;
+
+    protected float FireTime;
+
     protected Transform tf;
     protected Transform BulletRespawn;
 
     public BulletController bulletPrefab;
+
+    public WeaponDTO dto;
+
+    protected bool isReloading;
+
+    public virtual bool CanFire {
+        get
+        {
+            return Ammo > 0 && FireTime + FireRate < Time.time && !isReloading;
+        }
+    }
 
     private void Awake()
     {
@@ -47,6 +63,8 @@ public class Weapon : MonoBehaviour
         }
 
         AwakeInit();
+
+        SetDTO(this.dto);
     }
 
     protected virtual void AwakeInit()
@@ -54,11 +72,51 @@ public class Weapon : MonoBehaviour
 
     }
 
-    public void Init() { }
+    public void Init()
+    {
+
+    }
+
+    public void ReloadWeapon()
+    {
+        if(!isReloading)
+        {
+            StartCoroutine(ExecReload());
+        }
+    }
+
+    IEnumerator ExecReload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(ReloadSpeed);
+        Ammo = MaxAmmo;
+        isReloading = false;
+    }
+
+    public virtual void SetDTO(WeaponDTO dto)
+    {
+        Name = dto.Name;
+        Distance = dto.Distance;
+        FireRate = dto.FireRate;
+        Damage = dto.Damage;
+        MaxAmmo = dto.MaxAmmo;
+        ReloadSpeed = dto.ReloadSpeed;
+        Weight = dto.Weight;
+        Accuracy = dto.Accuracy;
+
+        Ammo = MaxAmmo;
+    }
 
     public void Fire()
     {
-        Instantiate(bulletPrefab, BulletRespawn.position, tf.rotation);
+        if(CanFire)
+        {
+            FireTime = Time.time;
+            Instantiate(bulletPrefab, BulletRespawn.position, tf.rotation);
+            Ammo--;
+        }
+
+
     }
 
 }

@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
             weapons[0].Fire();
         }
 
+        if(IC.ReloadDown)
+        {
+            weapons[0].ReloadWeapon();
+        }
+
         Fire = IC.Fire;
         FireDown = IC.FireDown;
         FireUp = IC.FireUp;

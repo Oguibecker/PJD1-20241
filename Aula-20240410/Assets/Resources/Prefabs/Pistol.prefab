@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
+  Name: 
   Distance: 0
   FireRate: 0
   Damage: 0
@@ -205,3 +206,5 @@ MonoBehaviour:
   ReloadSpeed: 0
   Weight: 0
   Accuracy: 0
+  bulletPrefab: {fileID: 0}
+  dto: {fileID: 11400000, guid: 6cb2647e4576d66408714009f2653949, type: 2}

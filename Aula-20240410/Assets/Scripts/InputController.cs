@@ -50,6 +50,12 @@ public class InputController : MonoBehaviour
     }
 
     [SerializeField]
+    static public bool ReloadDown
+    {
+        get; protected set;
+    }
+
+    [SerializeField]
     protected InputType type;
 
     private void Awake()
@@ -129,5 +135,7 @@ public class InputController : MonoBehaviour
         FireDown = Input.GetMouseButtonDown(0);
         Fire = Input.GetMouseButton(0);
         FireUp = Input.GetMouseButtonUp(0);
+
+        ReloadDown = Input.GetMouseButtonDown(1);
     }
 }
