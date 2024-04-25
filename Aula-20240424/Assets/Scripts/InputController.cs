@@ -67,6 +67,11 @@ public class InputController : MonoBehaviour
     static public bool Alpha5Down { get; protected set; }
 
     [SerializeField]
+    static public bool WeaponNextDown { get; protected set; }
+    [SerializeField]
+    static public bool WeaponPrevDown { get; protected set; }
+
+    [SerializeField]
     protected InputType type = InputType.Desktop;
 
     private void Awake()
@@ -159,5 +164,8 @@ public class InputController : MonoBehaviour
         Alpha3Down = Input.GetKeyDown(KeyCode.Alpha3);
         Alpha4Down = Input.GetKeyDown(KeyCode.Alpha4);
         Alpha5Down = Input.GetKeyDown(KeyCode.Alpha5);
+
+        WeaponNextDown = Input.GetKeyDown(KeyCode.E);
+        WeaponPrevDown = Input.GetKeyDown(KeyCode.Q);
     }
 }

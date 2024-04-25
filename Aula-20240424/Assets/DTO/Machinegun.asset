@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c691428b4d0324f94e8d70cbde0f3b, type: 3}
-  m_Name: Double Barrel
+  m_Script: {fileID: 11500000, guid: 46d01e0baa64da945bfdeaf8bda095c3, type: 3}
+  m_Name: Machinegun
   m_EditorClassIdentifier: 
-  Name: Double Barrel
-  Type: 2
-  Distance: 3
-  FireRate: 0.5
+  Name: Minigun
+  Type: 3
+  Distance: 7
+  FireRate: 0.1
   Damage: 5
-  MaxAmmo: 10
-  ReloadSpeed: 1
+  MaxAmmo: 50
+  ReloadSpeed: 2
   Weight: 1
-  Accuracy: 1
-  Pellets: 5
-  Spread: 60
+  Accuracy: 0.95

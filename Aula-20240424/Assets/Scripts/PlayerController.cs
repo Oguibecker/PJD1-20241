@@ -23,7 +23,9 @@ public class PlayerController : MonoBehaviour
         }
         protected set {
             CurrentWeapon.gameObject.SetActive(false);
-            _WeaponIndex = value;
+            //_WeaponIndex = Mathf.Clamp(value, 0, weapons.Count - 1);
+            _WeaponIndex = (value + weapons.Count) % weapons.Count;
+            Debug.Log(_WeaponIndex);
             CurrentWeapon.gameObject.SetActive(true);
             GameEvents.AmmoChangeEvent.Invoke(CurrentWeapon.Ammo, CurrentWeapon.MaxAmmo); ;
         }
@@ -118,6 +120,14 @@ public class PlayerController : MonoBehaviour
             SwitchWeapon(WeaponType.RocketLauncher);
         }
 
+        if(IC.WeaponNextDown)
+        {
+            WeaponIndex++;
+        }
+        else if(IC.WeaponPrevDown)
+        {
+            WeaponIndex--;
+        }
 
         Fire = IC.Fire;
         FireDown = IC.FireDown;
