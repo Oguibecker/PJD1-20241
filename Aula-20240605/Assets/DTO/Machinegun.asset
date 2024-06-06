@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d01e0baa64da945bfdeaf8bda095c3, type: 3}
+  m_Name: Machinegun
+  m_EditorClassIdentifier: 
+  Name: Minigun
+  Type: 3
+  Distance: 7
+  FireRate: 0.1
+  Damage: 5
+  MaxAmmo: 50
+  ReloadSpeed: 2
+  Weight: 1
+  Accuracy: 0.95
+  AmmunitionType: 1
